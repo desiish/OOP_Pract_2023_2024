@@ -1,0 +1,149 @@
+#include <iostream>
+#include <cstring>
+
+namespace DataLimits {
+	constexpr const unsigned MAX_SYMBOLS = 50;
+	constexpr const unsigned OPTIONS_COUNT = 4;
+	constexpr const unsigned QUESTIONS_COUNT = 3;
+}
+
+enum class Choice 
+{
+	A,
+	B,
+	C,
+	D,
+	Undefined
+};
+
+struct OptionalAnswer
+{
+	char answer[DataLimits::MAX_SYMBOLS] = {};
+};
+
+void copyAnswer(OptionalAnswer& dest, const OptionalAnswer& source)
+{
+	strcpy_s(dest.answer, DataLimits::MAX_SYMBOLS, source.answer);
+}
+
+OptionalAnswer createAnswer(const char* ans)
+{
+	OptionalAnswer toReturn;
+	strcpy_s(toReturn.answer, DataLimits::MAX_SYMBOLS, ans);
+	return toReturn;
+}
+
+struct Question
+{
+	char question[DataLimits::MAX_SYMBOLS] = {};
+	OptionalAnswer answers[DataLimits::OPTIONS_COUNT];
+	Choice correctChoice = Choice::Undefined;
+	unsigned points = 0;
+};
+
+Question createQuestion(const char* question, OptionalAnswer answers[DataLimits::OPTIONS_COUNT], 
+						Choice correctChoice, unsigned pointsGiven)
+{
+	Question toReturn;
+	
+	strcpy_s(toReturn.question, DataLimits::MAX_SYMBOLS, question);
+	toReturn.correctChoice = correctChoice;
+	toReturn.points = pointsGiven;
+
+	for (size_t i = 0; i < DataLimits::OPTIONS_COUNT; i++)
+		copyAnswer(toReturn.answers[i], answers[i]);
+
+	return toReturn;
+}
+
+struct Quiz 
+{
+	Question questions[DataLimits::QUESTIONS_COUNT];
+};
+
+void presentQuestion(const Question& q)
+{
+	std::cout << q.question;
+	std::cout << std::endl;
+	for (size_t i = 0; i < DataLimits::OPTIONS_COUNT; i++)
+		std::cout << (char)('A' + i) << ')' << q.answers[i].answer << '\t';
+	
+	std::cout << std::endl;
+}
+
+Choice getUserChoice()
+{
+	char ch;
+	do
+	{
+		std::cin >> ch;
+		if (ch == 'A') return Choice::A;
+		else if (ch == 'B') return Choice::B;
+		else if (ch == 'C') return Choice::C;
+		else if (ch == 'D') return Choice::D;
+	} while (true);
+}
+
+void presentQuiz(const Quiz& q)
+{
+	unsigned points = 0;
+
+	for (size_t i = 0; i < DataLimits::QUESTIONS_COUNT; i++) 
+	{
+		presentQuestion(q.questions[i]);
+
+		Choice userChoice = getUserChoice();
+
+		if (userChoice == q.questions[i].correctChoice)
+			points += q.questions[i].points;
+	}
+
+	std::cout << "You scored " << points << " points!!";
+}
+
+// Example
+Quiz createExampleQuiz()
+{
+	// Q1 - how do we create composite data types in C++?
+	OptionalAnswer first[4] = {
+		createAnswer("struct"),
+		createAnswer("enum"),
+		createAnswer("namespace"),
+		createAnswer("all of the above")
+	};
+
+	// Q2 - what is int?
+	OptionalAnswer second[4] = {
+		createAnswer("datatype"),
+		createAnswer("number"),
+		createAnswer("fancy word"),
+		createAnswer("?")
+	};
+
+	// Q3 - are you lucky?
+	OptionalAnswer third[4] = {
+		createAnswer("no"),
+		createAnswer("yes"),
+		createAnswer("??"),
+		createAnswer("?")
+	};
+
+	Quiz q = {
+		createQuestion("how do we create composite data types in C++?", first, Choice::A, 1),
+		createQuestion("what is int?", second, Choice::A, 1),
+		createQuestion("are you lucky?", third, Choice::A, 1)
+	};
+
+	return q;
+}
+
+struct Example {
+	int a[2];
+	char b[2];
+};
+
+int main()
+{
+	Quiz e = createExampleQuiz();
+	presentQuiz(e);
+}
