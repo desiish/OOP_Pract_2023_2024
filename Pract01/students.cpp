@@ -62,6 +62,7 @@ Result getYearRes(int n) {
 }
 
 Student readStudent() {
+	//TODO: validate fn and grade
 	unsigned fn;
 	cin >> fn;
 	int n;
