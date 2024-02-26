@@ -57,7 +57,8 @@ enum class SortType {
 
 enum class ResponseCode {
     OK,
-    INVALID_SORTING_TYPE
+    INVALID_SORTING_TYPE,
+    NULLPTR_GIVEN
 };
 
 struct Response {
@@ -67,6 +68,9 @@ struct Response {
 };
 
 Response sort(int* arr, size_t size, SortType type) {
+    if(!arr)
+        return { arr, 0, ResponseCode::NULLPTR_GIVEN };
+    
     switch (type) {
     case SortType::BUBBLE_SORT: bubbleSort(arr, size); break;
     case SortType::INSERTION_SORT: insertionSort(arr, size); break;
