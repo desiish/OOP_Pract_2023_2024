@@ -18,7 +18,7 @@ int main() {
     int resFromPtr = addPtr(2, 3);
     int resFromFunc = add(2, 3);
 
-    cout << resFromFunc << " " << resFromPtr; // 5 5
+    std::cout << resFromFunc << " " << resFromPtr; // 5 5
 }
 ```
 ❗Не можем да извършваме аритметични операции върху тези указатели.
