@@ -13,7 +13,7 @@ int add(int x, int y) {
 }
 
 int main() {
-    int(*addPtr)(int, int) = add; // pointer to function that has 2 integer arguments and returns an integer as a result
+    int(*addPtr)(int, int) = add; // pointer to function that accepts 2 integers as arguments and returns an integer as a result
 
     int resFromPtr = addPtr(2, 3);
     int resFromFunc = add(2, 3);
