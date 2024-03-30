@@ -30,7 +30,7 @@ bool Multiset::addNumber(unsigned num) {
 
 	uint8_t& currBucket = buckets[bucket];
 	uint8_t mask = 1;
-	unsigned occurances = getCountOfOccurrances(num);
+	unsigned occurances = getCountOfoccurrences(num);
 
 	mask <<= index * 2;
 
@@ -60,7 +60,7 @@ bool Multiset::removeNumber(unsigned num) {
 
 	uint8_t& currBucket = buckets[bucket];
 	uint8_t mask = 1;
-	unsigned occurances = getCountOfOccurrances(num);
+	unsigned occurances = getCountOfoccurrences(num);
 
 	mask <<= index * 2;
 
@@ -84,7 +84,7 @@ bool Multiset::removeNumber(unsigned num) {
 	}
 }
 
-unsigned Multiset::getCountOfOccurrances(unsigned num) const {
+unsigned Multiset::getCountOfoccurrences(unsigned num) const {
 	unsigned bucket = num / elementsInBucket;
 	unsigned index = num % elementsInBucket;
 
@@ -107,8 +107,8 @@ void Multiset::printSet() const {
 	std::cout << '{';
 	for (unsigned i = 0; i < n; i++)
 	{
-		unsigned occurrances = getCountOfOccurrances(i);
-		printNumber(i, occurrances);
+		unsigned occurrences = getCountOfoccurrences(i);
+		printNumber(i, occurrences);
 	}
 	std::cout << '}';
 }
@@ -131,9 +131,9 @@ Multiset intersect(const Multiset& s1, const Multiset& s2) {
 
 	for (unsigned i = 0; i < n; i++)
 	{
-		unsigned occurrancesInS1 = s1.getCountOfOccurrances(i);
-		unsigned occurrancesInS2 = s2.getCountOfOccurrances(i);
-		unsigned occurances = occurrancesInS1 < occurrancesInS2 ? occurrancesInS1 : occurrancesInS2;
+		unsigned occurrencesInS1 = s1.getCountOfoccurrences(i);
+		unsigned occurrencesInS2 = s2.getCountOfoccurrences(i);
+		unsigned occurances = occurrencesInS1 < occurrencesInS2 ? occurrencesInS1 : occurrencesInS2;
 		res.addNumberMultipleTimes(i, occurances);
 	}
 
