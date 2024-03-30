@@ -117,7 +117,6 @@ void Multiset::addNumberMultipleTimes(unsigned num, unsigned times) {
 	if (times > 3)
 		times = 3;
 
-	std::cout << num << " " << times << std::endl;
 	for (unsigned i = 0; i < times; i++)
 		addNumber(num);
 		
