@@ -7,7 +7,7 @@ class Multiset {
     unsigned n;
     unsigned countOfBuckets;
     const unsigned elementsInBucket = 4;
-    const unsigned maxoccurrences = 3;
+    const unsigned maxOccurrences = 3;
 
 public:
     explicit Multiset(unsigned n);
@@ -17,7 +17,7 @@ public:
 
     bool addNumber(unsigned num);
     bool removeNumber(unsigned num);
-    unsigned getCountOfoccurrences(unsigned num) const;
+    unsigned getCountOfOccurrences(unsigned num) const;
     void printSet() const;
 
     friend Multiset intersect(const Multiset& s1, const Multiset& s2);
