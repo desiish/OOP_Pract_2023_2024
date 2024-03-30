@@ -114,8 +114,8 @@ void Multiset::printSet() const {
 }
 
 void Multiset::addNumberMultipleTimes(unsigned num, unsigned times) {
-	if (times > 3)
-		times = 3;
+	if (times > maxOccurrences)
+		times = maxOccurrences;
 
 	for (unsigned i = 0; i < times; i++)
 		addNumber(num);
