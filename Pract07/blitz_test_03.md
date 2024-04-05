@@ -66,6 +66,7 @@ class Student {
 	char* name = nullptr;
 	int* grades = nullptr;
 	int fn;
+	size_t gradesCount;
 
 public:
 	/*...*/
