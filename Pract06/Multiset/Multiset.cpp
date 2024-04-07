@@ -147,7 +147,10 @@ Multiset unify(const Multiset& s1, const Multiset& s2) {
 
 	for (unsigned i = 0; i < s1.countOfBuckets; i++)
 	{
-		res.buckets[i] = s1.buckets[i] | s2.buckets[i];
+		unsigned occurrencesInS1 = s1.getCountOfOccurrences(i);
+		unsigned occurrencesInS2 = s2.getCountOfOccurrences(i);
+		unsigned occurrences = occurrencesInS1 + occurrencesInS2;
+		res.addNumberMultipleTimes(i, occurrences);
 	}
 
 	return res;
