@@ -6,4 +6,7 @@
 - [**Тема 5:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract05) Разделна компилация.
 - [**Тема 6:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract06) Голяма четворка.
 - [**Тема 7:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract07) Предефиниране на оператори.
+- [**Тема 8:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract08) Static.
+- [**Тема 9:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract09) Move семантики.
+- [**Тема 10:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract10) Наследяване.
 - [**Допълнителни материали**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Utils)
