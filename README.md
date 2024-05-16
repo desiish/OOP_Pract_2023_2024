@@ -9,4 +9,5 @@
 - [**Тема 8:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract08) Static.
 - [**Тема 9:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract09) Move семантики.
 - [**Тема 10:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract10) Наследяване.
+- [**Тема 11:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract11) Полиморфизъм.
 - [**Допълнителни материали**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Utils)
