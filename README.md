@@ -11,7 +11,7 @@
 - [**Тема 10:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract10) Наследяване.
 - [**Тема 11:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract11) Полиморфизъм.
 - [**Тема 12:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract12) Темплейти.
-- [**Тема 13:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract13-14) Хетерогенен колнтейнер.
+- [**Тема 13:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract13-14) Хетерогенен контейнер.
 - [**Тема 14:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract13-14) Умни указатели. Множествено наследяване.
 - [**Тема 15:**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Pract15) Дървовидни структури. Design pattern-и и SOLID принципи.
 - [**Допълнителни материали**](https://github.com/desiish/OOP_Pract_2023_2024/tree/main/Utils)
