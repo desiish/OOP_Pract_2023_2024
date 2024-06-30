@@ -97,14 +97,15 @@ class Form {
     int w;
 public:
     Form(int h, int w) : h(h), w(w) {}
-    void addControl(Control* ctr);
+    void addControl(const Control* ctr);
     void changeSize(int h, int w);
     void change(size_t index);
     ~Form();
 };
 
-void Form::addControl(Control* ctr) {
-    controls.push_back(ctr);
+void Form::addControl(const Control* ctr) {
+    Control* copy = ctr->clone();
+    controls.push_back(copy);
 }
 
 void Form::changeSize(int h, int w) {
@@ -124,3 +125,4 @@ Form::~Form() {
         delete controls[i];
     }
 }
+
