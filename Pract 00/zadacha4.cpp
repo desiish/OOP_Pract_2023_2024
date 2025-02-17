@@ -7,17 +7,15 @@ void buildArray(int* arrayOfNumbers, int n) {
         *arrayOfNumbers = nextN;
         arrayOfNumbers++;
     }
-
 }
-int isSequence(int *arrayOfNumbers) {
-    if (*arrayOfNumbers == '\0') {
+int isSequence(int* arrayOfNumbers, int n) {
+    if (n == 1) {
         return 1;
     }
-    if (*arrayOfNumbers < isSequence(arrayOfNumbers++)) {
+    if (arrayOfNumbers[n - 1] < arrayOfNumbers[n - 2]) {
         return 0;
     }
-
-
+    return isSequence(arrayOfNumbers, n - 1);
 }
 int main()
 {
@@ -25,14 +23,11 @@ int main()
     std::cout << "Enter amount of sequence's indexes: \n";
     std::cin >> n;
 
-    int *arrayOfNumbers = new int[n + 1];
+    int* arrayOfNumbers = new int[n];
     buildArray(arrayOfNumbers, n);
 
+    std::cout << isSequence(arrayOfNumbers, n);
 
-
-    std::cout << isSequence(arrayOfNumbers);
-
-    
+    delete[] arrayOfNumbers;
 }
-
 
