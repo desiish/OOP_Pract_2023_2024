@@ -42,13 +42,9 @@
 
 - Обхват:
     - `enum`: *unscoped*, членовете му (константите) се декларират в глобалното пространство.
-    - `enum class`: *scoped*, членовете се достъпват чрез scope resolution-оператора:
-  ```
-     enum_class_name::something.
-  ```
-Пример: 
+    - `enum class`: *scoped*, членовете се достъпват чрез scope resolution-оператора `::`.
 
-     ```c++
+  ```c++
         enum class Animal
         {
             DOG, 
