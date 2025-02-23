@@ -91,12 +91,12 @@
 
     void foo1(Date d)
     {
-        d.day = -1; // we don`t change the valude of d.day because a copy of the struct is given as a parameter to the function foo1.
+        d.day = -1; // we don`t change the valude of d.day because a copy of the instance is passed to foo1.
     }
 
     void foo2(Date& d)
     {
-        d.day = 20; // here we change the value of d`s day because a reference to the instance is given to foo2.
+        d.day = 20; // here we change the value of d`s day because a reference to the instance is passed to foo2.
     }
 
     int main()
