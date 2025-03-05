@@ -23,6 +23,18 @@ int countMatchingElements(const int *arr, int size, bool (*predicate)(int)) {
     }
     return count;
 }
+bool isPrimeCheck(int num) {
+    if (num < 3) {
+        return false;
+    }
+    for (int i = 2; i < num; i++) {
+        
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 int main()
 {
     int n;
@@ -35,8 +47,10 @@ int main()
     //type (pointer to function) (arguments for f) = [capture list](parameter) -> type for return {body}
     // we have a pointer to a function and inside it a lambda function
     bool (*isEven)(int) = [](int num) -> bool { return num % 2 == 0; };
+    bool (*isOdd)(int) = [](int num) -> bool {return num % 2 == 1; };
+    bool (*isPrime)(int) = [](int num) -> bool {return isPrimeCheck(num); };
 
-    int result = countMatchingElements(arrayNumbers, n, isEven);
+    int result = countMatchingElements(arrayNumbers, n, isPrime);
     std::cout << "Count of even numbers: " << result << std::endl;
     delete[] arrayNumbers;
 }
