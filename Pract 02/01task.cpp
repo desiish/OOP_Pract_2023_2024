@@ -30,7 +30,7 @@ struct Book {
         }
     }
 };
-
+//note: individual books, not really engaged with the amount of each book
 struct Library {
     static const short NUM_BOOKS = 10;
     Book books[NUM_BOOKS];
