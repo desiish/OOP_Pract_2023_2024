@@ -85,7 +85,7 @@ void giveBook(Library& library, Book* book) {
         char answer;
         std::cout << "You are returning a book that's not registered!\nDo you want to donate this book: y/n?\n";
         std::cin >> answer;
-        if (answer) {
+        if (answer == 'y') {
             addBook(library, book);
         } 
     }
