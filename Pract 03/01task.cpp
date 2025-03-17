@@ -1,42 +1,49 @@
-
 #include <iostream>
-int* makeArray(int n) {
-    int* arr = new int[n];
-    return arr;
-}
-void inputNumbersInArray(int* arr, int n) {
-    std::cout << "Let's assign values to the array!\n";
-    for (int i = 0; i < n; i++) {
-        int element;
-        std::cout << "Enter an element: \n";
-        std::cin >> element;
-        //adding watch to monitor the inputs in the dynamic int array
-        arr[i] = element;
-    }
-}
-int countMatchingElements(const int *arr, int size, bool (*predicate)(int)) {
-    int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (predicate(arr[i])) {
-            count++;
-        }
-    }
-    return count;
-}
-int main()
-{
-    int n;
-    std::cout << "How many numbers are we using for our array? \n";
-    std::cin >> n;
-    int* arrayNumbers = makeArray(n);
-    inputNumbersInArray(arrayNumbers , n);
+#include <fstream>
+//for styling
+#include <iomanip>
+#include <string>
+//of - write; if - read
+int main() {
+	int a, b;
+	std::cout << "Pick 2 numbers: \n";
+	std::cin >> a >> b;
+	int sum = a + b;
+	int subtraction = a - b;
+	std::ofstream inputFile("C:/Users/vikik/Desktop/example.txt", std::ios::out);
+	if (!inputFile.is_open()) {
+		std::cerr << "Error opening file";
+		return 1;
+	}
 
+	//input
+	inputFile << "Sum of numbers:";
+	inputFile << a + b << std::endl;
+	inputFile << "Subtraction of numbers:";
+	inputFile << a - b << std::endl;
 
-    //type (pointer to function) (arguments for f) = [capture list](parameter) -> type for return {body}
-    // we have a pointer to a function and inside it a lambda function
-    bool (*isEven)(int) = [](int num) -> bool { return num % 2 == 0; };
+	inputFile.close();
 
-    int result = countMatchingElements(arrayNumbers, n, isEven);
-    std::cout << "Count of even numbers: " << result << std::endl;
-    delete[] arrayNumbers;
+	std::ifstream outputFile("C:/Users/vikik/Desktop/example.txt");
+	std::cout << "Here is the sum and subtraction from the numbers: ";
+	char ch;
+	bool skip = false;
+	while (outputFile.get(ch)) {
+		if (ch == 'S') {
+			skip = true;
+		}
+		if (skip) {
+			if (ch == ':') {
+				skip = false; 
+			}
+			continue;
+		}
+		std::cout << ch;
+	}
+	int a_reconstructed = (sum + subtraction) / 2;
+	int b_reconstructed = sum - a_reconstructed;
+	std::cout << "The original numbers were: " << a_reconstructed << " and " << b_reconstructed;
+
+	outputFile.close();
+
 }
