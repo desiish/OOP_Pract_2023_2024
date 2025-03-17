@@ -10,7 +10,7 @@ int main() {
 	std::cin >> a >> b;
 	int sum = a + b;
 	int subtraction = a - b;
-	std::ofstream inputFile("C:/Users/vikik/Desktop/example.txt", std::ios::out);
+	std::ofstream inputFile("result1.txt", std::ios::out);
 	if (!inputFile.is_open()) {
 		std::cerr << "Error opening file";
 		return 1;
